@@ -1,4 +1,4 @@
-# HOMEWORK
+# ASSIGNMENT 2
 
 Create an app for display Rate Currency from `https://currencyfreaks.com/`. The app will display the rate currency from `USD` to `CAD, IDR, JPY, CHF, EUR, and GBP`.
 
