@@ -1,8 +1,19 @@
-# React + Vite
+# HOMEWORK
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create an app for display Rate Currency from `https://currencyfreaks.com/`. The app will display the rate currency from `USD` to `CAD, IDR, JPY, CHF, EUR, and GBP`.
 
-Currently, two official plugins are available:
+This app was created using ReactJS + Vite and Bootstrap 5.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Run
+
+Type this command in your terminal to run the program:
+
+```
+yarn dev
+```
+
+Open your browser and go to `http://localhost:5173`
+
+### Author
+
+**Dio**
