@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import useGetRates from './hooks/useGetRate';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { rates, getRates } = useGetRates();
+
+  useEffect(() => {
+    getRates();
+  }, [getRates]);
+
+  console.log(rates);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="bg-orange-500 h-screen text-white">
+        <div className="flex items-center justify-center h-full">
+          <div>
+            <table className="table-auto">
+              <thead className="text-xl font-semibold h-10">
+                <tr className="">
+                  <th className="w-40">Currency</th>
+                  <th className="w-40">We Buy</th>
+                  <th className="w-40">Exchange Rate</th>
+                  <th className="w-40">We Sell</th>
+                </tr>
+              </thead>
+              <tbody className="text-center text-xl font-light">
+                {rates.length > 0 && (
+                  <>
+                    {rates.map((rate, i) => (
+                      <tr key={i} className="">
+                        <td className="">{rate.currency}</td>
+                        <td className="">{rate.buy}</td>
+                        <td className="">{rate.rate}</td>
+                        <td className="">{rate.sell}</td>
+                      </tr>
+                    ))}
+                  </>
+                )}
+              </tbody>
+            </table>
+
+            <div className="pt-12">
+              <div className="text-sm text-center font-light">
+                <p>Rates are based from 1 USD.</p>
+                <p>
+                  This applications uses API from https://currencyfreaks.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
