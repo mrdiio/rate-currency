@@ -2,14 +2,13 @@ import { useCallback, useState } from 'react';
 
 export default function useGetRates() {
   const [rates, setRates] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getRates = useCallback(async () => {
     try {
+      setLoading(true);
       const res = await fetch(
-        'https://api.currencyfreaks.com/v2.0/rates/latest?apikey=710084c741934fc390ea8f0e0cf1e9d4&symbols=CAD,IDR,JPY,CHF,EUR,GBP',
-        {
-          cache: 'no-cache',
-        }
+        'https://api.currencyfreaks.com/v2.0/rates/latest?apikey=50f6d95197b94347b6090c06e2738cc4&symbols=CAD,IDR,JPY,CHF,EUR,GBP'
       );
       const data = await res.json();
 
@@ -24,8 +23,10 @@ export default function useGetRates() {
       setRates(rates);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
-  return { rates, getRates };
+  return { rates, getRates, loading };
 }
