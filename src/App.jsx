@@ -8,7 +8,6 @@ function App() {
     getRates();
   }, [getRates]);
 
-  console.log(rates);
 
   return (
     <>
